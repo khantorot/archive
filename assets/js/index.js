@@ -1,3 +1,62 @@
+
+
+const img_wrap = document.querySelector('.img_wrap');
+const info_wrap = document.querySelector('.info_wrap');
+const menu_btn = document.querySelector('.menu_btn');
+const container = document.querySelector('.container');
+const menu = document.querySelector('.menu');
+
+
+if ((/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
+    img_wrap.style.background = "url(./content/images/kismod.jpg)";
+    info_wrap.style.background = "url(./content/images/memory_hack.gif)";
+    
+    menu_btn.addEventListener('click', function(){
+        menu.classList.toggle('menu_hide');
+        this.classList.toggle('menu_btn_active');
+        container.classList.toggle('menu_show');
+        (this.classList.contains('menu_btn_active')) ? this.innerHTML = 'close' : this.innerHTML = 'info';
+    })
+} else {
+    document.querySelector('.menu').addEventListener('mouseover', function (e) {
+        if (e.target.classList.contains('menu__item-inner')) {
+            let keyID = e.target.getAttribute('data-atr');
+            img_wrap.style.background = "url(./content/images/" + projects[keyID].name + ".jpg)";
+            info_wrap.innerHTML = '<h4>' + projects[keyID].name + '</h4><p>' + projects[keyID].about + '</p><span>' + projects[keyID].date + '</span><span>' + projects[keyID].status + '</span><a href="'+ projects[keyID].link +'" target="_blank">view</a>';
+        }
+    })
+    img_wrap.style.background = "url(./content/images/" + projects[0].image + ")";
+    info_wrap.innerHTML = '<h4>' + projects[0].name + '</h4><p>' + projects[0].about + '</p><span>' + projects[0].date + '</span><a href="'+ projects[0].link +'" target="_blank">view</a>';
+}
+
+
+
+showPage()
+
+function showPage() {
+    let out_menu = '';
+    let out_img = '';
+    for (key in projects) {
+        out_menu += '<div class="menu__item"><a class="menu__item-inner" data-atr="' + key + '" target="_blank" href="'+ projects[key].link +'">' + projects[key].name + '</a></div>';
+
+        out_img += ' <img class="content__img" src="./content/images/' + projects[key].image + '" alt="'+ projects[key].name +'" />';
+    }
+    document.querySelector('.menu').innerHTML = out_menu;
+    document.querySelector('.content').innerHTML = out_img;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 // modules are defined as an array
 // [ module function, map of requires ]
 //
@@ -495,6 +554,3 @@ parcelRequire = (function (modules, cache, entry, globalName) {
       new ImageTrail();
   });
 }
-
-
-

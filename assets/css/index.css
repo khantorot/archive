@@ -22,22 +22,24 @@
 
 .menu__item {
 	flex: none;
+	width: 100%;
 }
 
 .menu__item-inner {
 	white-space: nowrap;
 	position: relative;
 	cursor: pointer;
-	font-size: 5vw;
+	font-size: 6vw;
 	text-transform: uppercase;
 	font-weight: 700;
-	padding: 1vw;
+	padding: 1vw 5px;
 	display: block;
-	color:  #000;
-	transition: 0.2s;
+	color:  var(--text);
 }
 
 .menu__item-inner:hover{
+	background: var(--text);
+	color: var(--bg);
 	text-decoration: line-through;
 }
 
@@ -54,7 +56,8 @@
 	left: 0;
 	width: 61.8%;
 	height: 100%;
-	z-index: -1;
+	z-index: 1;
+	pointer-events: none;
 }
 
 .img_wrap{
@@ -72,13 +75,12 @@
 }
 
 .content__img {
-	max-width: 150px;
+	max-width: 180px;
 	position: absolute;
 	top: 0;
 	left: 0;
 	opacity: 0;
 	will-change: transform;
-	filter: var(--filter-img);
 }
 
 .content__img--full {
@@ -115,7 +117,19 @@
 .main_text h1{
 	text-transform: uppercase;
 	font-size: 4vw;
-	margin-bottom: 40px;
+	margin-bottom: 30px;
+}
+
+.main_text p{
+	font-weight: 700;
+}
+
+.main_text a{
+	text-decoration: underline;
+}
+
+.main_text a:hover{
+	text-decoration: line-through;
 }
 
 
@@ -130,7 +144,7 @@
 	padding: 5%;
 	display: flex;
 	flex-wrap: wrap;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: space-between;
 }
 
@@ -142,22 +156,24 @@
 
 .info_wrap p{
 	width: 100%;
+	font-weight: 700;
 }
 .info_wrap span{
+	margin-top: auto;
+	font-weight: 700;
 	font-size: 15px;
 }
 
-
-.main_text a,
 .info_wrap a{
+	margin-top: auto;
 	font-weight: 700;
 	text-decoration: underline;
 }
 
-.main_text a:hover,
 .info_wrap a:hover{
 	text-decoration: line-through;
 }
+
 .img_wrap{
 	position: absolute;
 	bottom: 0;
@@ -198,8 +214,8 @@
 	.menu_btn{
 		display: block;
 		position: fixed;
-		bottom: 30px;
-		left: 40px;
+		bottom: 20px;
+		right: 20px;
 		background: var(--text);
 		color: var(--bg);
 		font-weight: 900;
@@ -215,8 +231,8 @@
 		transform: translateX(0);
 	}
 	.info_wrap {
-		background-size: cover;
-		background-position: center;
+		background-size: cover!important;
+		background-position: center!important;
 	}
 
 	.menu_hide{
