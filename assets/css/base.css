@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&display=swap');
+
+
+:root{
+    --bg: #000000;
+    --text: #f4f4f4;
+	--l1: #adadad;
+	--l2: #ababab;
+	--l3: #a9a9a9;
+    --l4: #a7a7a7;
+    --d1: #0a0a0a;
+    --d2: #080808;
+    --d3: #060606;
+    --d4: #040404;
+}
+
+
+body {
+    overflow-x: hidden;
+	color: var(--text);
+    background-color: var(--bg);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    outline: none;
+    font-family: 'Cinzel', serif;
+    -webkit-tap-highlight-color: rgba(0,0,0,0); -webkit-tap-highlight-color: transparent;
+}
+
+a{
+    color: var(--text);
+    text-decoration: none;
+}
+
+img{
+    pointer-events: none;
+}
+
+textarea, button, input{
+    border: 0;
+    outline: 0;
+    color: var(--text);
+    background: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
